@@ -10,6 +10,22 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	$(".friends").click(friendClick);
+}
+
+function friendClick(e) {
+	e.preventDefault();
+	console.log("Friend clicked");
+
+	var containingFriends = $(this).closest(".friends");
+	var name = $(containingFriends).find(".friends-name");
+	
+	if (name.length == 0) {
+       $(containingFriends).append(anagrammedName(name));
+    } else {
+		$(".friends-description").fadeOut();
+		console.log("confirmed")
+	}
 }
 
 function anagrammedName(name) {
